@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+  <style>
+    
+    .carousel-caption {
+      background: rgba(0, 0, 0, 0.5); 
+      border-radius: 10px;            
+      padding: 30px;                  
+      bottom: 60px;                   
+    }
+
+    .carousel-caption h1 {
+      font-size: 36px;
+      font-weight: 800;
+      color: #ffffff;                 
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); 
+      margin-bottom: 10px;
+    }
+
+    .carousel-caption h2 {
+      font-size: 22px !important;     
+      font-weight: 600 !important;
+      color: #f8f9fa !important;       
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+      margin: 0;
+    }
+
+    
+    .carousel-inner .item img {
+      height: 500px;                  
+      object-fit: cover;              
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Carousel Example</h2>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <div class="carousel-inner">
+
+      <div class="item active">
+        <img src="Beach.jpg" alt="beach" style="width:100%;">
+        <div class="carousel-caption">
+          <h1>Beach</h1>
+          <h2>Beach is always so much fun!</h2>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="Mountain.jpg" alt="mountain" style="width:100%;">
+        <div class="carousel-caption">
+          <h1>Mountain</h1>
+          <h2>Mountain is very Beautiful.</h2>
+        </div>
+      </div>
+    
+      <div class="item">
+        <img src="Trees.jpg" alt="tree" style="width:100%;">
+        <div class="carousel-caption">
+          <h1>Trees</h1>
+          <h2>We love the trees</h2>
+        </div>
+      </div>
+  
+    </div>
+
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holy-grail layout</title>
+    <style>
+        *{
+            box-sizing:border-box;
+            margin:0;
+            padding:0;
+        }
+        body{
+            font-family:sans-serif;
+            display:grid;
+            grid-template-rows:auto 1fr auto;
+            grid-template-columns:200px 1fr 200px;
+            min-height:100vh;
+        
+        }
+        header{
+            grid-column: 1 / -1;
+            background-color:#d61212;
+            color:white;
+            padding:20px;
+            text-align:center;
+
+        }
+        nav{
+            background:rgb(163, 141, 141);
+            padding:20px;
+
+        }
+        aside{
+            background:rgb(128, 128, 150);
+            padding:20;
+        }
+        main{
+            background:rgb(102, 155, 102);
+            padding:20px;
+
+        }
+      
+        
+        footer{
+            grid-column: 1 / -1;;
+            background-color: #333;
+            color:white;
+            padding:20px;
+            text-align:center;
+
+        }
+      @media (max-width: 768px) {
+            body {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto auto auto;
+            }
+            header, nav, main, aside, footer {
+                grid-column: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>Header area</header>
+    <nav>Left side area</nav>
+    <main>Main Content area</main>
+    <aside>Right side area</aside>
+    <footer>Footer Area</footer>
+</body>
+</html>

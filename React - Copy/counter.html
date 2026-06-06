@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My First React Counter App</title>
+    
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f7f6;
+            padding-top: 50px;
+        }
+        .box {
+            background-color: #ffffff;
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .add-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .clear-btn {
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <script>
+        // Shortcut components creation from React library
+        const element = React.createElement;
+        const useState = React.useState;
+
+        // Simple Counter Component Function
+        function StudentCounter() {
+            
+            const [count, setCount] = useState(0);
+
+            
+            function increase() {
+                setCount(count + 1);
+            }
+
+            
+            function clear() {
+                setCount(0);
+            }
+
+            
+            const textToShow = count + " times clicked";
+
+            
+            return element('div', { className: 'box' },
+                element('h1', null, textToShow),
+                element('button', { className: 'add-btn', onClick: increase }, 'Click Me'),
+                element('button', { className: 'clear-btn', onClick: clear }, 'Reset')
+            );
+        }
+
+        // Rendering the App inside the HTML DOM structure
+        const rootContainer = document.getElementById('root');
+        const reactRoot = ReactDOM.createRoot(rootContainer);
+        reactRoot.render(element(StudentCounter));
+    </script>
+</body>
+</html>

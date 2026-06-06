@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Colorful Table</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 p-8 max-w-3xl mx-auto font-sans">
+
+    <div class="mb-6 relative">
+        <input type="text" id="tableSearch" placeholder="Search members by name..." 
+               class="w-full pl-11 pr-4 py-3 bg-white border border-gray-200 rounded-xl shadow-sm text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 transition-all" />
+        <span class="absolute left-4 top-3.5 text-gray-400 text-sm">🔍</span>
+    </div>
+
+    <div class="bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden">
+        <table class="w-full text-left border-collapse" id="directoryTable">
+            <thead>
+                <tr class="bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-xs font-bold uppercase tracking-wider">
+                    <th class="py-4 px-6">Name</th>
+                    <th class="py-4 px-6">Department</th>
+                    <th class="py-4 px-6">Status</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100 text-sm text-gray-700">
+                
+                <tr class="table-row hover:bg-violet-50/30 transition-colors">
+                    <td class="py-4 px-6 font-semibold text-gray-900">Alex Morgan</td>
+                    <td class="py-4 px-6 text-indigo-600 font-medium">Engineering</td>
+                    <td class="py-4 px-6">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800 border border-emerald-200">Active</span>
+                    </td>
+                </tr>
+
+                <tr class="table-row hover:bg-pink-50/30 transition-colors">
+                    <td class="py-4 px-6 font-semibold text-gray-900">Sarah Connor</td>
+                    <td class="py-4 px-6 text-pink-600 font-medium">Design Ops</td>
+                    <td class="py-4 px-6">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-amber-100 text-amber-800 border border-amber-200">On Break</span>
+                    </td>
+                </tr>
+
+                <tr class="table-row hover:bg-cyan-50/30 transition-colors">
+                    <td class="py-4 px-6 font-semibold text-gray-900">Marcus Wright</td>
+                    <td class="py-4 px-6 text-cyan-600 font-medium">Data Security</td>
+                    <td class="py-4 px-6">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-rose-100 text-rose-800 border border-rose-200">Suspended</span>
+                    </td>
+                </tr>
+
+                <tr class="table-row hover:bg-amber-50/30 transition-colors">
+                    <td class="py-4 px-6 font-semibold text-gray-900">Jane Doe</td>
+                    <td class="py-4 px-6 text-amber-600 font-medium">Marketing</td>
+                    <td class="py-4 px-6">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800 border border-emerald-200">Active</span>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

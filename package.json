@@ -1,0 +1,24 @@
+{
+  "name": "model_1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KushRadhanpura/Model_1_training.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KushRadhanpura/Model_1_training/issues"
+  },
+  "homepage": "https://github.com/KushRadhanpura/Model_1_training#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "mongodb": "^7.2.0"
+  }
+}

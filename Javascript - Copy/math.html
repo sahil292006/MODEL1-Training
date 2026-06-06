@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <pre id="out"></pre>
+  <script>
+    const el = document.getElementById('out');
+    const log = (label, val) => el.textContent += `${label.padEnd(30)} => ${val}\n`;
+
+    
+    log('Math.round(4.7)', Math.round(4.7));
+    log('Math.ceil(4.1)', Math.ceil(4.1));
+    log('Math.floor(4.9)', Math.floor(4.9));
+    log('Math.trunc(-4.9)', Math.trunc(-4.9));
+    log('Math.fround(5.5)', Math.fround(5.5));
+
+    
+    log('Math.pow(2, 3)', Math.pow(2, 3));
+    log('Math.sqrt(64)', Math.sqrt(64));
+    log('Math.cbrt(27)', Math.cbrt(27));
+    log('Math.hypot(3, 4)', Math.hypot(3, 4));
+    log('Math.random()', Math.random());
+    log('Math.clz32(1)', Math.clz32(1));
+
+    
+    log('Math.abs(-5)', Math.abs(-5));
+    log('Math.sign(-23)', Math.sign(-23));
+    log('Math.max(5, 20, 1)', Math.max(5, 20, 1));
+    log('Math.min(5, 20, 1)', Math.min(5, 20, 1));
+    log('Math.imul(2, 4)', Math.imul(2, 4));
+
+    
+    log('Math.exp(1)', Math.exp(1));
+    log('Math.expm1(1)', Math.expm1(1));
+    log('Math.log(Math.E)', Math.log(Math.E));
+    log('Math.log10(100)', Math.log10(100));
+    log('Math.log2(8)', Math.log2(8));
+    log('Math.log1p(1)', Math.log1p(1));
+
+    
+    log('Math.sin(Math.PI / 2)', Math.sin(Math.PI / 2));
+    log('Math.cos(Math.PI)', Math.cos(Math.PI));
+    log('Math.tan(Math.PI / 4)', Math.tan(Math.PI / 4));
+    log('Math.asin(1)', Math.asin(1));
+    log('Math.acos(0)', Math.acos(0));
+    log('Math.atan(1)', Math.atan(1));
+    log('Math.atan2(1, 1)', Math.atan2(1, 1));
+
+    
+    log('Math.sinh(1)', Math.sinh(1));
+    log('Math.cosh(1)', Math.cosh(1));
+    log('Math.tanh(1)', Math.tanh(1));
+    log('Math.asinh(1)', Math.asinh(1));
+    log('Math.acosh(1)', Math.acosh(1));
+    log('Math.atanh(0.5)', Math.atanh(0.5));
+  </script>
+</body>
+</html>

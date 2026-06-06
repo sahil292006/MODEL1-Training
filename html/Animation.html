@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        @keyframes myAnimation {
+            from {
+                background-color: red;
+                transform: rotate(0deg); 
+            }
+            to {
+                background-color: yellow;
+                transform: rotate(180deg); 
+            }
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(123, 13, 226);
+            
+            
+            animation-name: myAnimation;
+            animation-duration: 2s;                  
+            animation-timing-function: ease-in-out;        
+            animation-delay: 2s;                     
+            animation-iteration-count: infinite;     
+            animation-direction: normal;             
+            animation-fill-mode: forwards;           
+            animation-play-state: running;           
+        }
+    </style>
+</head>
+<body>
+
+    <div></div>
+    
+</body>
+</html>

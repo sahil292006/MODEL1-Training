@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete specific row</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h2>Student List</h2>
+    <table border ="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Course</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Raj Sakshena</td>
+                <td>Full stack</td>
+                <td><button class="delBtn">Delete</button></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Pooja joshi</td>
+                <td>Data science</td>
+                <td><button class="delBtn">Delete</button></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Amit shah</td>
+                <td>cyber security</td>
+                <td><button class="delBtn">Delete</button></td>
+            </tr>
+            </tbody>
+
+    </table>
+    <script>
+        $(document).ready(function(){
+            $(".delBtn").click(function(){
+                $(this).closest("tr").remove();
+            })
+        })
+    </script>
+    
+</body>
+</html>

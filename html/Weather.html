@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure CSS Weather</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+       body {
+    
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                url('https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin: 0;
+}
+
+        
+        .weather-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 50px;
+            border-radius: 40px;
+            border: 1px solid rgba(255,255,255,0.2);
+            text-align: center;
+            width: 450px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+        }
+
+        
+        .search-container {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 15px 25px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 30px;
+            color: white;
+            font-size: 1.1rem;
+            outline: none;
+            transition: 0.4s;
+        }
+
+        
+        .search-container input:focus {
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 20px rgba(255,255,255,0.2);
+        }
+
+        .search-container i {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .weather-info {
+            transition: transform 0.5s ease;
+        }
+
+        .icon-box i {
+            font-size: 100px;
+            color: #f1c40f;
+            filter: drop-shadow(0 0 15px rgba(241, 196, 15, 0.5));
+            margin-bottom: 20px;
+        }
+
+        .temp {
+            font-size: 80px;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .city {
+            font-size: 30px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            margin-top: 10px;
+        }
+
+        
+        .search-container i:active + input {
+            transform: scale(0.98);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="weather-container">
+        <div class="search-container">
+            <input type="text" placeholder="Enter City Name...">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+
+        <div class="weather-info">
+            <div class="icon-box">
+                <i class="fa-solid fa-cloud-sun-bolt"></i>
+            </div>
+            <div class="temp">24°C</div>
+            <div class="city">Ahmedabad</div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Name Viewer</title>
+    
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f3f4f6;
+            padding-top: 50px;
+        }
+        .box {
+            background: white;
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        h2 {
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <script>
+        const element = React.createElement;
+        const useState = React.useState;
+
+        function SimpleApp() {
+            
+            const [text, setText] = useState('');
+
+            
+            function change(event) {
+                setText(event.target.value);
+            }
+
+            return element('div', { className: 'box' },
+                element('input', { 
+                    type: 'text', 
+                    placeholder: 'Type something here...', 
+                    value: text, 
+                    onChange: change 
+                }),
+                element('h2', null, text) 
+            );
+        }
+
+        
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(element(SimpleApp));
+    </script>
+</body>
+</html>

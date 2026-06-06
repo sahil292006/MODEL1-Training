@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Tic-Tac-Toe</title>
+    
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .game {
+            display: flex;
+            flex-direction: row;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            gap: 30px;
+        }
+        .game-board {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .status {
+            margin-bottom: 15px;
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            padding: 8px 15px;
+            background-color: #eef2f7;
+            border-radius: 6px;
+            width: 100%;
+            box-sizing: border-radius;
+        }
+        .board-row {
+            display: flex;
+        }
+        .square {
+            background: #fff;
+            border: 2px solid #cbd5e1;
+            font-size: 2rem;
+            font-weight: bold;
+            line-height: 70px;
+            height: 70px;
+            width: 70px;
+            margin-right: -2px;
+            margin-top: -2px;
+            padding: 0;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: #1e293b;
+            border-radius: 4px;
+        }
+        .square:hover {
+            background: #f8fafc;
+            border-color: #94a3b8;
+        }
+        
+        .clear-btn {
+            margin-top: 20px;
+            background-color: #ef4444; 
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+            width: 100%;
+        }
+        .clear-btn:hover {
+            background-color: #dc2626;
+        }
+        .game-info {
+            min-width: 160px;
+            max-height: 270px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        ol {
+            padding-left: 20px;
+            margin: 0;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .history-btn {
+            cursor: pointer;
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+            width: 100%;
+            text-align: left;
+        }
+        .history-btn:hover {
+            background-color: #2563eb;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <script>
+        const e = React.createElement;
+        const { useState } = React;
+
+        
+        function Square({ value, onSquareClick }) {
+            return e('button', { className: 'square', onClick: onSquareClick }, value);
+        }
+
+        
+        function Board({ xIsNext, squares, onPlay, onReset }) {
+            function handleClick(i) {
+                if (calculateWinner(squares) || squares[i]) {
+                    return;
+                }
+                const nextSquares = squares.slice();
+                nextSquares[i] = xIsNext ? 'X' : 'O';
+                onPlay(nextSquares);
+            }
+
+            const winner = calculateWinner(squares);
+            const isDraw = !winner && squares.every((square) => square !== null);
+
+            let status;
+            if (winner) {
+                status = 'Winner: ' + winner + ' 🎉';
+            } else if (isDraw) {
+                status = 'Match Draw! 🤝';
+            } else {
+                status = 'Next player: ' + (xIsNext ? 'X' : 'O');
+            }
+
+            
+            const rows = [];
+            for (let r = 0; r < 3; r++) {
+                const rowSquares = [];
+                for (let c = 0; c < 3; c++) {
+                    const index = r * 3 + c;
+                    rowSquares.push(e(Square, { key: index, value: squares[index], onSquareClick: () => handleClick(index) }));
+                }
+                rows.push(e('div', { key: r, className: 'board-row' }, rowSquares));
+            }
+
+            return e(React.Fragment, null, 
+                e('div', { className: 'status' }, status),
+                ...rows,
+                
+                e('button', { className: 'clear-btn', onClick: onReset }, 'Clear Board')
+            );
+        }
+
+         
+        function Game() {
+            const [history, setHistory] = useState([Array(9).fill(null)]);
+            const [currentMove, setCurrentMove] = useState(0);
+            const xIsNext = currentMove % 2 === 0;
+            const currentSquares = history[currentMove];
+
+            function handlePlay(nextSquares) {
+                const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
+                setHistory(nextHistory);
+                setCurrentMove(nextHistory.length - 1);
+            }
+
+            function jumpTo(nextMove) {
+                setCurrentMove(nextMove);
+            }
+
+            
+            function resetGame() {
+                setHistory([Array(9).fill(null)]);
+                setCurrentMove(0);
+            }
+
+            const moves = history.map((squares, move) => {
+                const description = move > 0 ? 'Go to move #' + move : 'Go to game start';
+                return e('li', { key: move }, 
+                    e('button', { className: 'history-btn', onClick: () => jumpTo(move) }, description)
+                );
+            });
+
+            return e('div', { className: 'game' },
+                e('div', { className: 'game-board' }, 
+                    e(Board, { 
+                        xIsNext: xIsNext, 
+                        squares: currentSquares, 
+                        onPlay: handlePlay,
+                        onReset: resetGame 
+                    })
+                ),
+                e('div', { className: 'game-info' }, 
+                    e('h3', { style: { marginTop: 0, color: '#475569' } }, 'Game History'),
+                    e('ol', null, moves)
+                )
+            );
+        }
+
+        
+        function calculateWinner(squares) {
+            const lines = [
+                [0, 1, 2], [3, 4, 5], [6, 7, 8],
+                [0, 3, 6], [1, 4, 7], [2, 5, 8],
+                [0, 4, 8], [2, 4, 6]
+            ];
+            for (let i = 0; i < lines.length; i++) {
+                const [a, b, c] = lines[i];
+                if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+                    return squares[a];
+                }
+            }
+            return null;
+        }
+
+        
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(e(Game));
+    </script>
+</body>
+</html>

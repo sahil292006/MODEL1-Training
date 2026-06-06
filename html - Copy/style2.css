@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Lato', sans-serif;
+    background-color: #f8f3f0;
+}
+
+
+.and-divider {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.2rem;
+    color: #b8926a;
+}
+
+
+.desktop-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.card-container {
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+
+.hero {
+    flex: 1.2;
+    position: relative;
+    background: #000;
+}
+
+#bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+}
+
+.overlay-text {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    z-index: 2;
+    color: white;
+}
+.overlay-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem; 
+    margin: 0;
+    line-height: 1.1;
+    
+}
+.overlay-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin: 0;
+}
+
+
+.details {
+    flex: 1;
+    overflow-y: auto; 
+    background: #fff;
+}
+
+.content-padding {
+    padding: 40px;
+    text-align: center;
+}
+
+.date {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: #2c2c2c;
+    margin: 10px 0;
+}
+
+hr {
+    width: 40px;
+    border: 0;
+    border-top: 2px solid #e0d5c8;
+    margin: 20px auto;
+}
+
+
+.final-invite {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #f9f4ef;
+}
+
+.excitement-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #444;
+}
+
+.main-rsvp-btn {
+    display: inline-block;
+    margin: 20px 0;
+    padding: 15px 40px;
+    background-color: #b8926a;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.main-rsvp-btn:hover {
+    background-color: #2c2c2c;
+    transform: translateY(-3px);
+}
+
+.invitation-footer {
+    margin-top: 20px;
+    font-style: italic;
+    color: #b8926a;
+    font-size: 0.9rem;
+}
+.invitation-footer p {
+    font-size: 1.4rem; 
+    font-family: 'Great Vibes', cursive;
+    color: #b8926a;
+    margin-top: 15px;
+}
+.overlay-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem; 
+    margin: 0;
+    line-height: 1.1;
+}
+
+
+.map-container iframe {
+    filter: sepia(10%) contrast(90%);
+    border-radius: 15px;
+}
+
+
+@media (max-width: 800px) {
+    .card-container { flex-direction: column; height: auto; }
+    .hero { height: 300px; }
+}

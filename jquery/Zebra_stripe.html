@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zebra stripe efffect</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+    <h2>Student Course Table</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name of Students</th>
+                <th>Course</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Raj Patel</td>
+                <td>Full Stack</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Manish shah</td>
+                <td>Data Science</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Payal Joshi</td>
+                <td>Cyber Security</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Anya Sharma</td>
+                <td>Cloud Computing</td>
+            </tr>
+            <td>5</td>
+            <td>Vikram Rathod</td>
+            <td>AI/ML</td>
+            <tr>
+                <td>6</td>
+                <td>Neha Gupta</td>
+                <td>Block chain</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        $(document).ready(function(){
+            $("tr:odd").css("background-color","white");
+            $("tr:even").css("background-color","yellow");
+
+        })
+    </script>
+    
+</body>
+</html>

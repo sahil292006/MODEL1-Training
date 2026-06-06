@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+
+    <style>
+        body{
+            font-family: Arial;
+            margin: 20px;
+        }
+
+        form{
+            width: 400px;
+            padding: 20px;
+            border: 2px solid black;
+        }
+
+        .error{
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Student Registration Form</h1>
+    </header>
+
+    <img src="download.png" width="150">
+
+    <nav>
+        <a href="home/">Home</a> |
+        <a href="signup/">Signup</a> |
+        <a href="signin/">Signin</a> |
+        <a href="aboutus/">About us</a> |
+        <a href="contact/">Contact us</a>
+    </nav>
+
+    <br>
+
+    <form onsubmit="return validateForm()">
+
+        <label for="fname">First Name:</label>
+        <input type="text" id="fname" name="fname">
+        <span class="error" id="fnameError"></span>
+        <br><br>
+
+        <label for="enrollment">Enrollment No:</label>
+        <input type="text" id="enrollment" name="enrollment">
+        <span class="error" id="enrollError"></span>
+        <br><br>
+
+        <label for="branch">Branch:</label>
+        <select id="branch" name="branch">
+            <option value="">Select Branch</option>
+            <option value="cse">CSE</option>
+            <option value="it">IT</option>
+            <option value="aiml">AIML</option>
+            <option value="cyber">Cyber Security</option>
+        </select>
+        <span class="error" id="branchError"></span>
+        <br><br>
+
+        <label for="div">Division:</label>
+        <input type="text" id="div" name="div">
+        <span class="error" id="divError"></span>
+        <br><br>
+
+        <label>Gender:</label>
+
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label>
+
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label>
+
+        <span class="error" id="genderError"></span>
+        <br><br>
+
+        <label for="mobile">Mobile Number:</label>
+        <input type="text" id="mobile" name="mobile">
+        <span class="error" id="mobileError"></span>
+        <br><br>
+
+        <label for="emailid">Email ID:</label>
+        <input type="email" id="emailid" name="emailid">
+        <span class="error" id="emailError"></span>
+        <br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <span class="error" id="passwordError"></span>
+        <br><br>
+
+        <label for="photo">Photo Upload:</label><br>
+        <input type="file" id="photo" name="photo">
+        <br><br>
+
+        <label for="remarks">Remarks:</label><br>
+        <textarea id="remarks" name="remarks"></textarea>
+        <br><br>
+
+        <input type="submit" value="Submit">
+        <input type="reset">
+
+    </form>
+
+    <script>
+
+        function validateForm(){
+
+            let isValid = true;
+
+            
+            document.querySelectorAll(".error").forEach(function(el){
+                el.innerHTML = "";
+            });
+
+            
+            let fname = document.getElementById("fname").value;
+
+            if(fname.trim() == ""){
+                document.getElementById("fnameError").innerHTML = "Enter first name";
+                isValid = false;
+            }
+
+            
+            let enrollment = document.getElementById("enrollment").value;
+
+            if(enrollment.trim() == ""){
+                document.getElementById("enrollError").innerHTML = "Enter enrollment number";
+                isValid = false;
+            }
+
+            
+            let branch = document.getElementById("branch").value;
+
+            if(branch == ""){
+                document.getElementById("branchError").innerHTML = "Select branch";
+                isValid = false;
+            }
+
+            
+            let div = document.getElementById("div").value;
+
+            if(div.trim() == ""){
+                document.getElementById("divError").innerHTML = "Enter division";
+                isValid = false;
+            }
+
+            
+            let gender = document.getElementsByName("gender");
+            let genderSelected = false;
+
+            for(let i=0; i<gender.length; i++){
+                if(gender[i].checked){
+                    genderSelected = true;
+                }
+            }
+
+            if(!genderSelected){
+                document.getElementById("genderError").innerHTML = "Select gender";
+                isValid = false;
+            }
+
+            
+            let mobile = document.getElementById("mobile").value;
+            let mobilePattern = /^[0-9]{10}$/;
+
+            if(!mobile.match(mobilePattern)){
+                document.getElementById("mobileError").innerHTML = "Enter valid 10 digit mobile number";
+                isValid = false;
+            }
+
+            
+            let email = document.getElementById("emailid").value;
+            let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+            if(!email.match(emailPattern)){
+                document.getElementById("emailError").innerHTML = "Enter valid email";
+                isValid = false;
+            }
+
+            
+            let password = document.getElementById("password").value;
+
+            if(password.length < 6){
+                document.getElementById("passwordError").innerHTML = "Password must be at least 6 characters";
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+    </script>
+
+</body>
+</html>

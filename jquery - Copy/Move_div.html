@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move DIV</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #div1{
+            width:100px ;
+            height:100px ;
+            background-color:yellow;
+            margin:10px 0;
+            padding:10px;
+            text-align:center;
+
+        }
+        #div2{
+            width:250px;
+            height:150px;
+            border:3px dashed red;
+            margin-top:20px;
+            padding:10px;
+        }
+        button{
+            padding:8px 15px;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Move element Automatically</h2>
+    <button id="moveBtn">Move Div 1 into Div 2</button>
+    <div id="div1">
+        Div1
+    </div>
+    <div id="div2">
+        Div2
+    </div>
+    <script>
+        $(document).ready(function(){
+            $("#moveBtn").click(function(){
+                $("#div1").appendTo("#div2");
+            })
+        })
+    </script>
+
+    
+</body>
+</html>
